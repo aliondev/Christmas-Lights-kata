@@ -7,7 +7,7 @@ export class ChristmasLights {
 
   turnOn(start: Coordinate, end: Coordinate) {
     if (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 0) {
-      this.amountLit = 1e3;
+      this.amountLit = (end.x - start.x) + 1;
       return;
     }
 
@@ -17,7 +17,7 @@ export class ChristmasLights {
     }
 
     if (start.x === 0 && start.y === 1 && end.x === 999 && end.y === 1) {
-      this.amountLit = 1e3;
+      this.amountLit = end.x - start.x + 1;
       return;
     }
 
