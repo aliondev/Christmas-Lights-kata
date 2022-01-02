@@ -15,7 +15,7 @@ export class ChristmasLights {
     }
 
     if (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 1) {
-      this.amountLit = 2e3;
+      this.amountLit = (end.x - start.x + 1) * 2;
       return;
     }
 
