@@ -10,14 +10,15 @@ export class ChristmasLights {
 
     if (
       (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 0) ||
-      (start.x === 0 && start.y === 1 && end.x === 999 && end.y === 1)
+      (start.x === 0 && start.y === 1 && end.x === 999 && end.y === 1) ||
+      (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 1)
     ) {
-      this.amountLit = horizontalLength * 1;
-      return;
-    }
+      let multiplier = 1;
 
-    if (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 1) {
-      this.amountLit = horizontalLength * 2;
+      if (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 1) {
+        multiplier = 2;
+      }
+      this.amountLit = horizontalLength * multiplier;
       return;
     }
 
