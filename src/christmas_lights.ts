@@ -13,11 +13,8 @@ export class ChristmasLights {
       (start.x === 0 && start.y === 1 && end.x === 999 && end.y === 1) ||
       (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 1)
     ) {
-      let multiplier = 1;
+      const multiplier = (end.y - start.y) + 1;
 
-      if (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 1) {
-        multiplier = 2;
-      }
       this.amountLit = horizontalLength * multiplier;
       return;
     }
