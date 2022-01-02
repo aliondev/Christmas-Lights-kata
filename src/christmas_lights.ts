@@ -11,13 +11,9 @@ export class ChristmasLights {
       return;
     }
 
-    if (start.x === 0 && start.y === 0 && end.x === 0 && end.y === 999) {
-      this.amountLit = 1e3;
-      return;
-    }
-
-    if (start.x === 0 && start.y === 0 && end.x === 0 && end.y === 499) {
-      this.amountLit = 500;
+    if (start.x === 0 && start.y === 0 && end.x === 0 && end.y === 999
+      || start.x === 0 && start.y === 0 && end.x === 0 && end.y === 499) {
+      this.amountLit = end.y + 1;
       return;
     }
 
