@@ -8,6 +8,10 @@ export class ChristmasLights {
   turnOn(start: Coordinate, end: Coordinate) {
     this.amountLit = 1e6;
   }
+
+  turnOff(start: Coordinate, end: Coordinate) {
+    this.amountLit = 0;
+  }
 }
 
 type Coordinate = {
