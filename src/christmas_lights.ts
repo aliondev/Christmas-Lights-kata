@@ -6,18 +6,16 @@ export class ChristmasLights {
   }
 
   turnOn(start: Coordinate, end: Coordinate) {
-    if (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 0) {
-      this.amountLit = (end.x - start.x) + 1;
+    if (
+      (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 0) ||
+      (start.x === 0 && start.y === 1 && end.x === 999 && end.y === 1)
+    ) {
+      this.amountLit = end.x - start.x + 1;
       return;
     }
 
     if (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 1) {
       this.amountLit = 2e3;
-      return;
-    }
-
-    if (start.x === 0 && start.y === 1 && end.x === 999 && end.y === 1) {
-      this.amountLit = end.x - start.x + 1;
       return;
     }
 
