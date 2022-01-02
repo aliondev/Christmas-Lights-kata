@@ -7,13 +7,14 @@ export class ChristmasLights {
 
   turnOn(start: Coordinate, end: Coordinate) {
     const horizontalLength = (end.x - start.x) + 1;
+    const verticalLength = end.y - start.y + 1;
 
     if (
       (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 0) ||
       (start.x === 0 && start.y === 1 && end.x === 999 && end.y === 1) ||
       (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 1)
     ) {
-      const verticalLength = (end.y - start.y) + 1;
+
 
       this.amountLit = horizontalLength * verticalLength;
       return;
@@ -24,7 +25,7 @@ export class ChristmasLights {
       (start.y === 0 && end.x === 0 && end.y === 499) ||
       (start.y === 500 && end.x === 0 && end.y === 999)
     ) {
-      this.amountLit = (end.y - start.y) + 1;
+      this.amountLit = verticalLength;
       return;
     }
 
