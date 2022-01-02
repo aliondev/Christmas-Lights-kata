@@ -1,5 +1,9 @@
+import { ChristmasLights } from '../src/christmas_lights';
+
 describe('Christmas lights kata', () => {
-  it('', () => {
-    expect(3).toBe(2);
-  })
-})
+  it('has all the lights off initially', () => {
+    const christmasLights = new ChristmasLights();
+
+    expect(christmasLights.getAmountLit()).toBe(0);
+  });
+});
