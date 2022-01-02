@@ -13,9 +13,9 @@ export class ChristmasLights {
       (start.x === 0 && start.y === 1 && end.x === 999 && end.y === 1) ||
       (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 1)
     ) {
-      const multiplier = (end.y - start.y) + 1;
+      const verticalLength = (end.y - start.y) + 1;
 
-      this.amountLit = horizontalLength * multiplier;
+      this.amountLit = horizontalLength * verticalLength;
       return;
     }
 
