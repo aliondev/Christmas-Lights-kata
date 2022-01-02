@@ -47,4 +47,14 @@ describe('Christmas lights kata', () => {
 
     expect(christmasLights.getAmountLit()).toBe(1e3);
   });
+
+  it('has 500 lights lit if you turn on the half of the first column', () => {
+    const christmasLights = new ChristmasLights();
+    const startOfFirstColumn = { x: 0, y: 0 };
+    const middleOfFirstColumn = { x: 0, y: 499 };
+
+    christmasLights.turnOn(startOfFirstColumn, middleOfFirstColumn);
+
+    expect(christmasLights.getAmountLit()).toBe(500);
+  });
 });
