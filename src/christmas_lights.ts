@@ -12,7 +12,7 @@ export class ChristmasLights {
       (start.x === 0 && start.y === 0 && end.x === 999 && end.y === 0) ||
       (start.x === 0 && start.y === 1 && end.x === 999 && end.y === 1)
     ) {
-      this.amountLit = horizontalLength;
+      this.amountLit = horizontalLength * 1;
       return;
     }
 
