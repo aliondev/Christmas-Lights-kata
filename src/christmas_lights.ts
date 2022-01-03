@@ -7,16 +7,14 @@ export class ChristmasLights {
   }
 
   turnOn(start: Coordinate, end: Coordinate) {
-    const horizontalLength = (end.x - start.x) + 1;
-    const verticalLength = end.y - start.y + 1;
     const areaToTurnOn = new Area(start, end);
 
     if (this.litAreas.some(litArea => litArea.equals(areaToTurnOn))) {
       return;
     }
 
-    this.litAreas.push(new Area(start, end));
-    this.amountLit += horizontalLength * verticalLength;
+    this.litAreas.push(areaToTurnOn);
+    this.amountLit += areaToTurnOn.getAmountOfLights();
   }
 
   turnOff(start: Coordinate, end: Coordinate) {
@@ -42,5 +40,12 @@ class Area {
       }
 
       return true;
+  }
+
+  getAmountOfLights() {
+    const horizontalLength = this.end.x - this.start.x + 1;
+    const verticalLength = this.end.y - this.start.y + 1;
+
+    return horizontalLength * verticalLength;
   }
 }
