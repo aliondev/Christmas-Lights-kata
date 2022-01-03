@@ -9,7 +9,7 @@ export class ChristmasLights {
     const horizontalLength = (end.x - start.x) + 1;
     const verticalLength = end.y - start.y + 1;
 
-    this.amountLit = horizontalLength * verticalLength;
+    this.amountLit += horizontalLength * verticalLength;
   }
 
   turnOff(start: Coordinate, end: Coordinate) {
