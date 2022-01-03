@@ -100,4 +100,20 @@ describe('Christmas lights kata', () => {
 
     expect(christmasLights.getAmountLit()).toBe(2e3);
   });
+
+  it('does not take into account when the same lights are turned on several times', () => {
+    const christmasLights = new ChristmasLights();
+    const startOfFirstColumn = { x: 0, y: 0 };
+    const endOfFirstColumn = { x: 0, y: 999 };
+    const startOfSecondRow = { x: 0, y: 1 };
+    const endOfSecondRow = { x: 999, y: 1 };
+
+    christmasLights.turnOn(startOfFirstColumn, endOfFirstColumn);
+    christmasLights.turnOn(startOfFirstColumn, endOfFirstColumn);
+
+    christmasLights.turnOn(startOfSecondRow, endOfSecondRow);
+    christmasLights.turnOn(startOfSecondRow, endOfSecondRow);
+
+    expect(christmasLights.getAmountLit()).toBe(2e3);
+  });
 });
