@@ -143,4 +143,16 @@ describe('Christmas lights kata', () => {
 
     expect(christmasLights.getAmountLit()).toBe(1000);
   });
+
+  it('turn on just the lights that are off turning in an area that is already partially on', () => {
+    const christmasLights = new ChristmasLights();
+    const startOfFirstColumn = { x: 0, y: 0 };
+    const middleOfFirstColumn = { x: 500, y: 0 };
+    const endOfFirstColumn = { x: 999, y: 0 };
+
+    christmasLights.turnOn(startOfFirstColumn, middleOfFirstColumn);
+    christmasLights.turnOn(startOfFirstColumn, endOfFirstColumn);
+
+    expect(christmasLights.getAmountLit()).toBe(1000);
+  });
 });
