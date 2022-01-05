@@ -1,56 +1,36 @@
 export class ChristmasLights {
-  private amountLit: number = 0;
-  private litAreas: Array<Area> = [];
+  private litBulbs: { [key: string]: number } = {}
 
   getAmountLit() {
-    return this.amountLit;
+    return Object.keys(this.litBulbs).length;
   }
 
   turnOn(start: Coordinate, end: Coordinate) {
-    const areaToTurnOn = new Area(start, end);
-
-    if (this.litAreas.some(litArea => litArea.equals(areaToTurnOn))) {
-      return;
-    }
-
-    this.litAreas.push(areaToTurnOn);
-    this.amountLit += areaToTurnOn.getAmountOfLights();
+    const litBulbsKeys = this.getLitBulbsKeysForArea(start, end);
+    litBulbsKeys.forEach(litBulbKey => { this.litBulbs[litBulbKey] = 1 });
   }
 
   turnOff(start: Coordinate, end: Coordinate) {
-    const areaToTurnOff = new Area(start, end);
-    this.amountLit -= areaToTurnOff.getAmountOfLights();
+   const litBulbsKeys = this.getLitBulbsKeysForArea(start, end);
+   litBulbsKeys.forEach((litBulbKey) => {
+     delete this.litBulbs[litBulbKey];
+   });
+  }
+
+  private getLitBulbsKeysForArea(start: Coordinate, end: Coordinate): Array<string> {
+    const litBulbsKeys = [];
+
+    for (let x=start.x; x<=end.x; x++) {
+      for (let y = start.y; y <= end.y; y++) {
+        litBulbsKeys.push(`${x}__${y}`);
+      }
+    }
+
+    return litBulbsKeys;
   }
 }
 
 type Coordinate = {
   x: number;
   y: number;
-}
-
-class Area {
-  constructor(readonly start: Coordinate, readonly end: Coordinate) {}
-
-  equals(otherArea) {
-    if (this.start.x !== otherArea.start.x ||
-          this.start.y !== otherArea.start.y ||
-          this.end.x !== otherArea.end.x ||
-          this.end.y !== otherArea.end.y
-      ) {
-        return false;
-      }
-
-      return true;
-  }
-
-  includes(otherArea) {
-
-  }
-
-  getAmountOfLights() {
-    const horizontalLength = this.end.x - this.start.x + 1;
-    const verticalLength = this.end.y - this.start.y + 1;
-
-    return horizontalLength * verticalLength;
-  }
 }

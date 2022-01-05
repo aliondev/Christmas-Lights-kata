@@ -92,11 +92,11 @@ describe('Christmas lights kata', () => {
     const christmasLights = new ChristmasLights();
     const startOfFirstColumn = { x: 0, y: 0 };
     const endOfFirstColumn = { x: 0, y: 999 };
-    const startOfSecondRow = { x: 0, y: 1 };
-    const endOfSecondRow = { x: 999, y: 1 };
+    const startOfSecondColumn = { x: 1, y: 0 };
+    const endOfSecondColumn = { x: 1, y: 999 };
 
     christmasLights.turnOn(startOfFirstColumn, endOfFirstColumn);
-    christmasLights.turnOn(startOfSecondRow, endOfSecondRow);
+    christmasLights.turnOn(startOfSecondColumn, endOfSecondColumn);
 
     expect(christmasLights.getAmountLit()).toBe(2e3);
   });
@@ -105,14 +105,14 @@ describe('Christmas lights kata', () => {
     const christmasLights = new ChristmasLights();
     const startOfFirstColumn = { x: 0, y: 0 };
     const endOfFirstColumn = { x: 0, y: 999 };
-    const startOfSecondRow = { x: 0, y: 1 };
-    const endOfSecondRow = { x: 999, y: 1 };
+    const startOfSecondColumn = { x: 1, y: 0 };
+    const endOfSecondColumn = { x: 1, y: 999 };
 
     christmasLights.turnOn(startOfFirstColumn, endOfFirstColumn);
     christmasLights.turnOn(startOfFirstColumn, endOfFirstColumn);
 
-    christmasLights.turnOn(startOfSecondRow, endOfSecondRow);
-    christmasLights.turnOn(startOfSecondRow, endOfSecondRow);
+    christmasLights.turnOn(startOfSecondColumn, endOfSecondColumn);
+    christmasLights.turnOn(startOfSecondColumn, endOfSecondColumn);
 
     expect(christmasLights.getAmountLit()).toBe(2e3);
   });
@@ -128,5 +128,19 @@ describe('Christmas lights kata', () => {
     christmasLights.turnOff(middleOfFirstColumn, endOfFirstColumn);
 
     expect(christmasLights.getAmountLit()).toBe(500);
+  });
+
+  it('does nothing when turnning off lights that are not lit', () => {
+    const christmasLights = new ChristmasLights();
+    const startOfFirstColumn = { x: 0, y: 0 };
+    const endOfFirstColumn = { x: 999, y: 0 };
+    const startOfSecondRow = { x: 0, y: 1 };
+    const endOfSecondRow = { x: 999, y: 1 };
+
+    christmasLights.turnOn(startOfFirstColumn, endOfFirstColumn);
+
+    christmasLights.turnOff(startOfSecondRow, endOfSecondRow);
+
+    expect(christmasLights.getAmountLit()).toBe(1000);
   });
 });
