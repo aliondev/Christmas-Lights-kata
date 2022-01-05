@@ -147,8 +147,8 @@ describe('Christmas lights kata', () => {
     it('toggles from on to off', () => {
       const christmasLights = new ChristmasLights();
 
-      christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_SECOND_ROW);
-      christmasLights.toggle(START_OF_FIRST_ROW, END_OF_SECOND_ROW);
+      christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
+      christmasLights.toggle(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
 
       expect(christmasLights.getAmountLit()).toBe(0);
     });
