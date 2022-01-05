@@ -18,7 +18,8 @@ export class ChristmasLights {
   }
 
   turnOff(start: Coordinate, end: Coordinate) {
-    this.amountLit = 0;
+    const areaToTurnOff = new Area(start, end);
+    this.amountLit -= areaToTurnOff.getAmountOfLights();
   }
 }
 
@@ -40,6 +41,10 @@ class Area {
       }
 
       return true;
+  }
+
+  includes(otherArea) {
+
   }
 
   getAmountOfLights() {
