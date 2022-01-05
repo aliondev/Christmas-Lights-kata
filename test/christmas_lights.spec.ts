@@ -142,4 +142,15 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getAmountLit()).toBe(1000);
     });
   });
+
+  describe('toggle', () => {
+    it('toggles from on to off', () => {
+      const christmasLights = new ChristmasLights();
+
+      christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_SECOND_ROW);
+      christmasLights.toggle(START_OF_FIRST_ROW, END_OF_SECOND_ROW);
+
+      expect(christmasLights.getAmountLit()).toBe(0);
+    });
+  });
 });

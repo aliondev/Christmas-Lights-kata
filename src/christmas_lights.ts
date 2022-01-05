@@ -5,6 +5,16 @@ export class ChristmasLights {
     return Object.keys(this.litBulbs).length;
   }
 
+  toggle(start: Coordinate, end: Coordinate) {
+    const litBulbsKeys = this.getLitBulbsKeysForArea(start, end);
+
+    litBulbsKeys.forEach(key => {
+      if (this.litBulbs[key]) {
+        delete this.litBulbs[key];
+      }
+    });
+  }
+
   turnOn(start: Coordinate, end: Coordinate) {
     const litBulbsKeys = this.getLitBulbsKeysForArea(start, end);
     litBulbsKeys.forEach(litBulbKey => { this.litBulbs[litBulbKey] = 1 });
