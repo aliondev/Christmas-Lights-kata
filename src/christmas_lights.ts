@@ -11,7 +11,10 @@ export class ChristmasLights {
     litBulbsKeys.forEach(key => {
       if (this.litBulbs[key]) {
         delete this.litBulbs[key];
+        return;
       }
+
+      this.litBulbs[key] = 1;
     });
   }
 
