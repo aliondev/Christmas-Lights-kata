@@ -157,7 +157,7 @@ describe('Christmas lights kata', () => {
   });
 
   describe('toggle', () => {
-    it('increases the brightness of lights that are lit', () => {
+    it('increases by 2 the brightness of lights that are lit', () => {
       const christmasLights = new ChristmasLightsV2();
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
@@ -174,13 +174,23 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getBrightness()).toBe(2_000);
     });
 
-    it('duplicates the brightness of lights that are lit and does nothing with those that are off', () => {
+    it('increases by 2 the brightness of lights that are lit and does nothing with those that are off', () => {
       const christmasLights = new ChristmasLightsV2();
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
       christmasLights.toggle(START_OF_FIRST_ROW, END_OF_SECOND_ROW);
 
       expect(christmasLights.getBrightness()).toBe(5_000);
+    });
+
+    it('increases the brightness by 2 as many times as used', () => {
+      const christmasLights = new ChristmasLightsV2();
+
+      christmasLights.toggle(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
+      christmasLights.toggle(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
+      christmasLights.toggle(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
+
+      expect(christmasLights.getBrightness()).toBe(6_000);
     });
   });
 });
