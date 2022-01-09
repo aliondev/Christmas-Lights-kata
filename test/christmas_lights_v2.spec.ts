@@ -75,7 +75,7 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getBrightness()).toBe(500);
     });
 
-    it('has a brightness of 2000 if you turn on 1000 lights and then 1000 more', () => {
+    it('has a brightness of 2000 if you turn on 1000 lights twice', () => {
       const christmasLights = new ChristmasLightsV2();
       const startOfSecondColumn = { x: 1, y: 0 };
       const endOfSecondColumn = { x: 1, y: 999 };
@@ -100,7 +100,7 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getBrightness()).toBe(4_000);
     });
 
-    it('turn on lights that are off and increases the bright of those that are already lit', () => {
+    it('turns on lights that are off and increases the bright of those that are already lit', () => {
       const christmasLights = new ChristmasLightsV2();
       const middleOfFirstRow = { x: 499, y: 0 };
 
