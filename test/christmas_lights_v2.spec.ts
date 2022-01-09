@@ -22,7 +22,7 @@ describe('Christmas lights kata', () => {
 
       christmasLights.turnOn(topLeftCorner, bottomRightCorner);
 
-      expect(christmasLights.getBrightness()).toBe(1e6);
+      expect(christmasLights.getBrightness()).toBe(1_000_000);
     });
 
     it('has 1000 lights lit if you turn on the first row', () => {
@@ -30,7 +30,7 @@ describe('Christmas lights kata', () => {
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
 
-      expect(christmasLights.getBrightness()).toBe(1e3);
+      expect(christmasLights.getBrightness()).toBe(1_000);
     });
 
     it('has 2000 lights lit if you turn on the first and the second row', () => {
@@ -38,7 +38,7 @@ describe('Christmas lights kata', () => {
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_SECOND_ROW);
 
-      expect(christmasLights.getBrightness()).toBe(2e3);
+      expect(christmasLights.getBrightness()).toBe(2_000);
     });
 
     it('has 1000 lights lit if you turn on the second row', () => {
@@ -46,7 +46,7 @@ describe('Christmas lights kata', () => {
 
       christmasLights.turnOn(START_OF_SECOND_ROW, END_OF_SECOND_ROW);
 
-      expect(christmasLights.getBrightness()).toBe(1e3);
+      expect(christmasLights.getBrightness()).toBe(1_000);
     });
 
     it('has 1000 lights lit if you turn on the first column', () => {
@@ -54,7 +54,7 @@ describe('Christmas lights kata', () => {
 
       christmasLights.turnOn(START_OF_FIRST_COLUMN, END_OF_FIRST_COLUMN);
 
-      expect(christmasLights.getBrightness()).toBe(1e3);
+      expect(christmasLights.getBrightness()).toBe(1_000);
     });
 
     it('has 500 lights lit if you turn on the half of the first column', () => {
@@ -83,7 +83,7 @@ describe('Christmas lights kata', () => {
       christmasLights.turnOn(START_OF_FIRST_COLUMN, END_OF_FIRST_COLUMN);
       christmasLights.turnOn(startOfSecondColumn, endOfSecondColumn);
 
-      expect(christmasLights.getBrightness()).toBe(2e3);
+      expect(christmasLights.getBrightness()).toBe(2_000);
     });
 
     it('increases the brightness of lights that are turned on several times', () => {
@@ -97,7 +97,7 @@ describe('Christmas lights kata', () => {
       christmasLights.turnOn(startOfSecondColumn, endOfSecondColumn);
       christmasLights.turnOn(startOfSecondColumn, endOfSecondColumn);
 
-      expect(christmasLights.getBrightness()).toBe(4e3);
+      expect(christmasLights.getBrightness()).toBe(4_000);
     });
 
     it('turn on lights that are off and increases the bright of those that are already lit', () => {
@@ -107,7 +107,7 @@ describe('Christmas lights kata', () => {
       christmasLights.turnOn(START_OF_FIRST_ROW, middleOfFirstRow);
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
 
-      expect(christmasLights.getBrightness()).toBe(1500);
+      expect(christmasLights.getBrightness()).toBe(1_500);
     });
   });
 
@@ -139,7 +139,7 @@ describe('Christmas lights kata', () => {
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
       christmasLights.turnOff(START_OF_SECOND_ROW, END_OF_SECOND_ROW);
 
-      expect(christmasLights.getBrightness()).toBe(1000);
+      expect(christmasLights.getBrightness()).toBe(1_000);
     });
   });
 
@@ -150,7 +150,7 @@ describe('Christmas lights kata', () => {
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
       christmasLights.toggle(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
 
-      expect(christmasLights.getBrightness()).toBe(3000);
+      expect(christmasLights.getBrightness()).toBe(3_000);
     });
 
     it('set brightness of 2 when the lights are off', () => {
@@ -158,7 +158,7 @@ describe('Christmas lights kata', () => {
 
       christmasLights.toggle(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
 
-      expect(christmasLights.getBrightness()).toBe(2000);
+      expect(christmasLights.getBrightness()).toBe(2_000);
     });
 
     it('duplicates the brightness of lights that are lit and does nothing with those that are off', () => {
@@ -167,7 +167,7 @@ describe('Christmas lights kata', () => {
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
       christmasLights.toggle(START_OF_FIRST_ROW, END_OF_SECOND_ROW);
 
-      expect(christmasLights.getBrightness()).toBe(5000);
+      expect(christmasLights.getBrightness()).toBe(5_000);
     });
   });
 });
