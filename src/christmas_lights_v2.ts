@@ -1,34 +1,42 @@
 export class ChristmasLightsV2 {
   private litBulbs: { [key: string]: number } = {};
 
-  getAmountLit() {
-    return Object.keys(this.litBulbs).length;
+  getBrightness() {
+    return Object.values(this.litBulbs).reduce((prev, curr) => {
+      prev += curr;
+      return prev;
+    }, 0);
   }
 
   toggle(start: Coordinate, end: Coordinate) {
     const litBulbsKeys = this.getLitBulbsKeysForArea(start, end);
 
     litBulbsKeys.forEach((key) => {
-      if (this.litBulbs[key]) {
-        delete this.litBulbs[key];
-        return;
-      }
-
-      this.litBulbs[key] = 1;
+      this.litBulbs[key] = this.litBulbs[key] ? this.litBulbs[key] + 2 : 2;
     });
   }
 
   turnOn(start: Coordinate, end: Coordinate) {
     const litBulbsKeys = this.getLitBulbsKeysForArea(start, end);
-    litBulbsKeys.forEach((litBulbKey) => {
-      this.litBulbs[litBulbKey] = 1;
+    litBulbsKeys.forEach((key) => {
+      this.litBulbs[key] = this.litBulbs[key] ? this.litBulbs[key] + 1 : 1;
     });
   }
 
   turnOff(start: Coordinate, end: Coordinate) {
     const litBulbsKeys = this.getLitBulbsKeysForArea(start, end);
-    litBulbsKeys.forEach((litBulbKey) => {
-      delete this.litBulbs[litBulbKey];
+    litBulbsKeys.forEach((key) => {
+
+      if (!this.litBulbs[key]) {
+        return;
+      }
+
+      if (this.litBulbs[key] === 1) {
+        delete this.litBulbs[key];
+        return;
+      }
+
+      this.litBulbs[key] -= 1;
     });
   }
 
