@@ -141,6 +141,19 @@ describe('Christmas lights kata', () => {
 
       expect(christmasLights.getBrightness()).toBe(1_000);
     });
+
+    it('descrease the brightness with a minimum of zero', () => {
+      const christmasLights = new ChristmasLightsV2();
+
+      christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
+
+      christmasLights.turnOff(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
+      christmasLights.turnOff(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
+      christmasLights.turnOff(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
+      christmasLights.turnOff(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
+
+      expect(christmasLights.getBrightness()).toBe(0);
+    });
   });
 
   describe('toggle', () => {
