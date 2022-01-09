@@ -1,4 +1,4 @@
-import { ChristmasLights } from '../src/christmas_lights';
+import { ChristmasLightsV1 } from '../src/christmas_lights_v1';
 
 const START_OF_FIRST_COLUMN = { x: 0, y: 0 };
 const END_OF_FIRST_COLUMN = { x: 0, y: 999 };
@@ -9,14 +9,14 @@ const END_OF_SECOND_ROW = { x: 999, y: 1 };
 
 describe('Christmas lights kata', () => {
   it('has all the lights off initially', () => {
-    const christmasLights = new ChristmasLights();
+    const christmasLights = new ChristmasLightsV1();
 
     expect(christmasLights.getAmountLit()).toBe(0);
   });
 
   describe('turn on', () => {
     it('has all the lights lit if you turn on all', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
       const topLeftCorner = { x: 0, y: 0 };
       const bottomRightCorner = { x: 999, y: 999 };
 
@@ -26,7 +26,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('has 1000 lights lit if you turn on the first row', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
 
@@ -34,7 +34,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('has 2000 lights lit if you turn on the first and the second row', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_SECOND_ROW);
 
@@ -42,7 +42,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('has 1000 lights lit if you turn on the second row', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
 
       christmasLights.turnOn(START_OF_SECOND_ROW, END_OF_SECOND_ROW);
 
@@ -50,7 +50,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('has 1000 lights lit if you turn on the first column', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
 
       christmasLights.turnOn(START_OF_FIRST_COLUMN, END_OF_FIRST_COLUMN);
 
@@ -58,7 +58,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('has 500 lights lit if you turn on the half of the first column', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
       const firstHalfOfFirstColumn = { x: 0, y: 499 };
 
       christmasLights.turnOn(START_OF_FIRST_COLUMN, firstHalfOfFirstColumn);
@@ -67,7 +67,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('has 500 lights lit if you turn on the second half of the first column', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
       const secondHalfOfFirstColumn = { x: 0, y: 500 };
 
       christmasLights.turnOn(secondHalfOfFirstColumn, END_OF_FIRST_COLUMN);
@@ -76,7 +76,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('has 2000 lights lit if you turn on 1000 lights and then 1000 more', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
       const startOfSecondColumn = { x: 1, y: 0 };
       const endOfSecondColumn = { x: 1, y: 999 };
 
@@ -87,7 +87,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('does not take into account when the same lights are turned on several times', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
       const startOfSecondColumn = { x: 1, y: 0 };
       const endOfSecondColumn = { x: 1, y: 999 };
 
@@ -101,7 +101,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('turn on just the lights that are off turning in an area that is already partially on', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
       const middleOfFirstRow = { x: 500, y: 0 };
 
       christmasLights.turnOn(START_OF_FIRST_ROW, middleOfFirstRow);
@@ -113,7 +113,7 @@ describe('Christmas lights kata', () => {
 
   describe('turn off', () => {
     it('does not have any light lit if you turn off all', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
       const topLeftCorner = { x: 0, y: 0 };
       const bottomRightCorner = { x: 999, y: 999 };
 
@@ -124,7 +124,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('has 500 lights lit if you turn on 1000 lights and then turn off 500 of them', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
       const middleOfFirstRow = { x: 500, y: 0 };
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
@@ -134,7 +134,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('does nothing when turnning off lights that are not lit', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
       christmasLights.turnOff(START_OF_SECOND_ROW, END_OF_SECOND_ROW);
@@ -145,7 +145,7 @@ describe('Christmas lights kata', () => {
 
   describe('toggle', () => {
     it('toggles from on to off', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
       christmasLights.toggle(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
@@ -154,7 +154,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('toggles from off to on', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
 
       christmasLights.toggle(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
 
@@ -162,7 +162,7 @@ describe('Christmas lights kata', () => {
     });
 
     it('toggles a mix of lights that are off and on', () => {
-      const christmasLights = new ChristmasLights();
+      const christmasLights = new ChristmasLightsV1();
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
       christmasLights.toggle(START_OF_FIRST_ROW, END_OF_SECOND_ROW);

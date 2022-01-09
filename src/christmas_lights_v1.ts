@@ -1,4 +1,4 @@
-export class ChristmasLights {
+export class ChristmasLightsV1 {
   private litBulbs: { [key: string]: number } = {}
 
   getAmountLit() {
