@@ -15,7 +15,7 @@ describe('Christmas lights kata', () => {
   });
 
   describe('turn on', () => {
-    it('has all the lights lit if you turn on all', () => {
+    it('has a brightness of 1 000 000 if you turn on all the lights once', () => {
       const christmasLights = new ChristmasLightsV2();
       const topLeftCorner = { x: 0, y: 0 };
       const bottomRightCorner = { x: 999, y: 999 };
@@ -25,7 +25,7 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getBrightness()).toBe(1_000_000);
     });
 
-    it('has 1000 lights lit if you turn on the first row', () => {
+    it('has a brightness of 1000 if you turn on the first row', () => {
       const christmasLights = new ChristmasLightsV2();
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_FIRST_ROW);
@@ -33,7 +33,7 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getBrightness()).toBe(1_000);
     });
 
-    it('has 2000 lights lit if you turn on the first and the second row', () => {
+    it('has a brightness of 2000 if you turn on the first and the second row', () => {
       const christmasLights = new ChristmasLightsV2();
 
       christmasLights.turnOn(START_OF_FIRST_ROW, END_OF_SECOND_ROW);
@@ -41,7 +41,7 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getBrightness()).toBe(2_000);
     });
 
-    it('has 1000 lights lit if you turn on the second row', () => {
+    it('has a brightness of 1000 if you turn on the second row', () => {
       const christmasLights = new ChristmasLightsV2();
 
       christmasLights.turnOn(START_OF_SECOND_ROW, END_OF_SECOND_ROW);
@@ -49,7 +49,7 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getBrightness()).toBe(1_000);
     });
 
-    it('has 1000 lights lit if you turn on the first column', () => {
+    it('has a brightness of 1000 if you turn on the first column', () => {
       const christmasLights = new ChristmasLightsV2();
 
       christmasLights.turnOn(START_OF_FIRST_COLUMN, END_OF_FIRST_COLUMN);
@@ -57,7 +57,7 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getBrightness()).toBe(1_000);
     });
 
-    it('has 500 lights lit if you turn on the half of the first column', () => {
+    it('has a brightness of 500 if you turn on the half of the first column', () => {
       const christmasLights = new ChristmasLightsV2();
       const firstHalfOfFirstColumn = { x: 0, y: 499 };
 
@@ -66,7 +66,7 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getBrightness()).toBe(500);
     });
 
-    it('has 500 lights lit if you turn on the second half of the first column', () => {
+    it('has a brightness of 500 if you turn on the second half of the first column', () => {
       const christmasLights = new ChristmasLightsV2();
       const secondHalfOfFirstColumn = { x: 0, y: 500 };
 
@@ -75,7 +75,7 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getBrightness()).toBe(500);
     });
 
-    it('has 2000 lights lit if you turn on 1000 lights and then 1000 more', () => {
+    it('has a brightness of 2000 if you turn on 1000 lights and then 1000 more', () => {
       const christmasLights = new ChristmasLightsV2();
       const startOfSecondColumn = { x: 1, y: 0 };
       const endOfSecondColumn = { x: 1, y: 999 };
@@ -123,7 +123,7 @@ describe('Christmas lights kata', () => {
       expect(christmasLights.getBrightness()).toBe(0);
     });
 
-    it('has 500 lights lit if you turn on 1000 lights and then turn off 500 of them', () => {
+    it('has the brightness of 500 if you turn on 1000 lights and then turn off 500 of them', () => {
       const christmasLights = new ChristmasLightsV2();
       const middleOfFirstRow = { x: 500, y: 0 };
 
